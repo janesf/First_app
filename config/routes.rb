@@ -1,14 +1,17 @@
 FirstApp::Application.routes.draw do
+  resources :microposts
+
+  resources :users
+  root :to => 'static_pages#home'
+
   get "static_pages/home"
 
   get "static_pages/help"
   get "static_pages/about"
   get "static_pages/home"
   get "static_pages/contact"
-  resources :microposts
 
-  resources :users
-
+  match '/signup',  :to => 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
